@@ -20,7 +20,7 @@ oc get is/go-toolset-7-centos7 -o json
 
 # Validate new app can use image stream via CLI
 oc new-app --name golang-test \
-  go-toolset-7-centos7~https://gitlab.oit.duke.edu/clc0317/golang-s2i-webapp
+  go-toolset-7-centos7~https://github.com/clcollins/golang-s2i-example.git
 
 # Add annotations to tell OpenShift this is a S2I Builder Image Stream
 # The tag {"tags": "builder"} needs to be added to spec.tags.annotations
@@ -48,12 +48,12 @@ oc patch is/go-toolset-7-centos7 --type json \
   --patch '[{"op": "replace", "path": "/spec/tags/0/annotations", "value": { "description": "Build and run Golang 1.8 applications on CentOS 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/golang-container/blob/master/1.8/README.md." }}]'
 
 oc patch is/go-toolset-7-centos7 --type json \
-  --patch '[{"op": "replace", "path": "/spec/tags/0/annotations", "value": { "sampleRepo": "https://gitlab.oit.duke.edu/clc0317/golang-s2i-webapp" }}]'
+  --patch '[{"op": "replace", "path": "/spec/tags/0/annotations", "value": { "sampleRepo": "https://github.com/clcollins/golang-s2i-example.git" }}]'
 
 
 # Alternatively - all of this can be specified by using oc create with an image stream definition:
 
-oc create -f https://gitlab.oit.duke.edu/clc0317/golang-s2i-webapp/blob/master/image-streams.json
+oc create -f https://raw.githubusercontent.com/clcollins/golang-s2i-example/master/image-streams.json
 ```
 
 ## Links
