@@ -3,10 +3,8 @@ golang-s2i-webapp
 
 Example Golang "webapp" for testing OpenShift S2I integration for Go projects.
 
-## Adding an S2I Builder imageStream to the OpenShift Console
+## Adding an S2I Builder imageStream to the OpenShift Catalog
 
-How to add a builder image to the OpenShift Catalog
-===================================================
 
 ```
 # NOTE: YOU MUST BE IN THE `OPENSHIFT` PROJECT IF YOU WANT THIS TO SHOW UP AS AN OPTION IN THE CATALOG
